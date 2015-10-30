@@ -148,6 +148,8 @@
 
     iput-object v0, p0, Lcom/android/server/location/LocationProviderProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
 
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/location/LocationProviderProxy;->mzSetProviderName()V
+
     .line 84
     return-void
 .end method
@@ -1196,4 +1198,17 @@
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
+.end method
+
+.method private mzSetProviderName()V
+    .locals 2
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/location/LocationProviderProxy;->mServiceWatcher:Lcom/android/server/ServiceWatcher;
+
+    iget-object v1, p0, Lcom/android/server/location/LocationProviderProxy;->mName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/ServiceWatcher;->setProviderName(Ljava/lang/String;)V
+
+    return-void
 .end method

@@ -15,6 +15,8 @@
 
 
 # static fields
+.field public static final MEIZU_KEYGUARD_LOCK:Ljava/lang/String; = "meizu_keyguard_lock"
+
 .field public static final ACCESSIBILITY_CAPTIONING_BACKGROUND_COLOR:Ljava/lang/String; = "accessibility_captioning_background_color"
 
 .field public static final ACCESSIBILITY_CAPTIONING_EDGE_COLOR:Ljava/lang/String; = "accessibility_captioning_edge_color"
@@ -1566,109 +1568,108 @@
 
     const/16 v3, 0x18
 
-    const-string/jumbo v4, "tts_use_defaults"
+    const-string v4, "tts_use_defaults"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x19
 
-    const-string/jumbo v4, "tts_default_rate"
+    const-string v4, "tts_default_rate"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1a
 
-    const-string/jumbo v4, "tts_default_pitch"
+    const-string v4, "tts_default_pitch"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1b
 
-    const-string/jumbo v4, "tts_default_synth"
+    const-string v4, "tts_default_synth"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1c
 
-    const-string/jumbo v4, "tts_default_lang"
+    const-string v4, "tts_default_lang"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1d
 
-    const-string/jumbo v4, "tts_default_country"
+    const-string v4, "tts_default_country"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1e
 
-    const-string/jumbo v4, "tts_enabled_plugins"
+    const-string v4, "tts_enabled_plugins"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x1f
 
-    const-string/jumbo v4, "tts_default_locale"
+    const-string v4, "tts_default_locale"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x20
 
-    const-string/jumbo v4, "wifi_networks_available_notification_on"
+    const-string v4, "wifi_networks_available_notification_on"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x21
 
-    const-string/jumbo v4, "wifi_networks_available_repeat_delay"
+    const-string v4, "wifi_networks_available_repeat_delay"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x22
 
-    const-string/jumbo v4, "wifi_num_open_networks_kept"
+    const-string v4, "wifi_num_open_networks_kept"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x23
 
-    const-string/jumbo v4, "mount_play_not_snd"
+    const-string v4, "mount_play_not_snd"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x24
 
-    const-string/jumbo v4, "mount_ums_autostart"
+    const-string v4, "mount_ums_autostart"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x25
 
-    const-string/jumbo v4, "mount_ums_prompt"
+    const-string v4, "mount_ums_prompt"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x26
 
-    const-string/jumbo v4, "mount_ums_notify_enabled"
+    const-string v4, "mount_ums_notify_enabled"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x27
 
-    const-string/jumbo v4, "ui_night_mode"
+    const-string v4, "ui_night_mode"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0x28
 
-    const-string/jumbo v4, "sleep_timeout"
+    const-string v4, "sleep_timeout"
 
     aput-object v4, v2, v3
 
     sput-object v2, Landroid/provider/Settings$Secure;->SETTINGS_TO_BACKUP:[Ljava/lang/String;
 
-    .line 5880
     const/16 v2, 0xc
 
     new-array v2, v2, [Ljava/lang/String;

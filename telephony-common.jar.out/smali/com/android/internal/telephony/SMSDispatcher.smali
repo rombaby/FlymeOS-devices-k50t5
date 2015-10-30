@@ -333,7 +333,7 @@
 
     move-result-object v1
 
-    const v4, 0x1120050
+    const v4, #android:bool@config_sms_capable#t
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1312,6 +1312,18 @@
 
     .line 1212
     :cond_1
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/SMSDispatcher;->mzCheckSimState()Z
+
+    move-result v8
+
+    if-nez v8, :cond_flyme_0
+
+    const/4 v6, 0x1
+
+    return v6
+
+    :cond_flyme_0
+
     iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher;->mPremiumSmsRule:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v8}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -2263,18 +2275,14 @@
 
     if-eqz v14, :cond_0
 
-    .line 1396
     :goto_0
     return-void
 
-    .line 1352
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 1353
-    const v4, 0x10404d6
+    const v4, #android:string@sms_premium_short_code_details#t
 
-    .line 1358
     .local v4, "detailsId":I
     :goto_1
     move-object/from16 v0, p2
@@ -2297,7 +2305,7 @@
 
     .line 1360
     .local v12, "r":Landroid/content/res/Resources;
-    const v14, 0x10404d4
+    const v14, #android:string@sms_short_code_confirm_message#t
 
     const/4 v15, 0x2
 
@@ -2341,7 +2349,7 @@
 
     .line 1365
     .local v7, "inflater":Landroid/view/LayoutInflater;
-    const v14, 0x10900ce
+    const v14, #android:layout@sms_short_code_confirmation_dialog#t
 
     const/4 v15, 0x0
 
@@ -2353,7 +2361,7 @@
     .local v8, "layout":Landroid/view/View;
     new-instance v9, Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;
 
-    const v14, 0x1020396
+    const v14, #android:id@sms_short_code_remember_undo_instruction#t
 
     invoke-virtual {v8, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2369,7 +2377,7 @@
 
     .line 1371
     .local v9, "listener":Lcom/android/internal/telephony/SMSDispatcher$ConfirmDialogListener;
-    const v14, 0x1020390
+    const v14, #android:id@sms_short_code_confirm_message#t
 
     invoke-virtual {v8, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2377,12 +2385,10 @@
 
     check-cast v11, Landroid/widget/TextView;
 
-    .line 1372
     .local v11, "messageView":Landroid/widget/TextView;
     invoke-virtual {v11, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1374
-    const v14, 0x1020391
+    const v14, #android:id@sms_short_code_detail_layout#t
 
     invoke-virtual {v8, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2392,7 +2398,7 @@
 
     .line 1376
     .local v5, "detailsLayout":Landroid/view/ViewGroup;
-    const v14, 0x1020393
+    const v14, #android:id@sms_short_code_detail_message#t
 
     invoke-virtual {v5, v14}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -2400,12 +2406,10 @@
 
     check-cast v6, Landroid/widget/TextView;
 
-    .line 1378
     .local v6, "detailsView":Landroid/widget/TextView;
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1380
-    const v14, 0x1020394
+    const v14, #android:id@sms_short_code_remember_choice_checkbox#t
 
     invoke-virtual {v8, v14}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2430,7 +2434,7 @@
 
     move-result-object v14
 
-    const v15, 0x10404d7
+    const v15, #android:string@sms_short_code_confirm_allow#t
 
     invoke-virtual {v12, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2440,7 +2444,7 @@
 
     move-result-object v14
 
-    const v15, 0x10404d8
+    const v15, #android:string@sms_short_code_confirm_deny#t
 
     invoke-virtual {v12, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2505,7 +2509,7 @@
     .end local v12    # "r":Landroid/content/res/Resources;
     .end local v13    # "rememberChoice":Landroid/widget/CheckBox;
     :cond_1
-    const v4, 0x10404d5
+    const v4, #android:string@sms_short_code_details#t
 
     .restart local v4    # "detailsId":I
     goto/16 :goto_1
@@ -2940,7 +2944,7 @@
 
     .line 1324
     .local v4, "r":Landroid/content/res/Resources;
-    const v5, 0x10404d1
+    const v5, #android:string@sms_control_message#t
 
     const/4 v6, 0x1
 
@@ -2974,13 +2978,13 @@
 
     invoke-direct {v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x10404d0
+    const v6, #android:string@sms_control_title#t
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v5
 
-    const v6, 0x108008a
+    const v6, #android:drawable@stat_sys_warning#t
 
     invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
@@ -2990,7 +2994,7 @@
 
     move-result-object v5
 
-    const v6, 0x10404d2
+    const v6, #android:string@sms_control_yes#t
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3000,7 +3004,7 @@
 
     move-result-object v5
 
-    const v6, 0x10404d3
+    const v6, #android:string@sms_control_no#t
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4633,4 +4637,39 @@
 
     .line 330
     return-void
+.end method
+
+.method private mzCheckSimState()Z
+    .locals 2
+
+    .prologue
+    const/4 v0, 0x1
+
+    iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimState()I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Landroid/os/BuildExt;->isProductInternational()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :cond_1
+    return v0
 .end method

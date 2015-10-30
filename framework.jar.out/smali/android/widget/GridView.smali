@@ -67,12 +67,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 126
-    const v0, 0x1010071
+    const v0, #android:attr@gridViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/GridView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 127
     return-void
 .end method
 
@@ -5276,7 +5274,7 @@
 .end method
 
 .method findMotionRow(I)I
-    .locals 4
+    .locals 5
     .param p1, "y"    # I
 
     .prologue
@@ -5313,6 +5311,10 @@
     invoke-virtual {v3}, Landroid/view/View;->getBottom()I
 
     move-result v3
+
+    iget v4, p0, Landroid/widget/GridView;->mScrollY:I
+
+    sub-int/2addr v3, v4
 
     if-gt p1, v3, :cond_0
 
@@ -5352,6 +5354,10 @@
     invoke-virtual {v3}, Landroid/view/View;->getTop()I
 
     move-result v3
+
+    iget v4, p0, Landroid/widget/GridView;->mScrollY:I
+
+    sub-int/2addr v3, v4
 
     if-lt p1, v3, :cond_2
 

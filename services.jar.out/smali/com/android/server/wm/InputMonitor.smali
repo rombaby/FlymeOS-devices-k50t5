@@ -2136,25 +2136,19 @@
 
     if-eqz v0, :cond_2
 
-    .line 658
     iget-object v0, p1, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
 
     iput-boolean v3, v0, Lcom/android/server/wm/WindowToken;->paused:Z
 
-    .line 661
     :cond_2
     iput-object p1, p0, Lcom/android/server/wm/InputMonitor;->mInputFocus:Lcom/android/server/wm/WindowState;
 
-    .line 662
     invoke-virtual {p0}, Lcom/android/server/wm/InputMonitor;->setUpdateInputWindowsNeededLw()V
 
-    .line 664
     if-eqz p2, :cond_3
 
-    .line 665
     invoke-virtual {p0, v3}, Lcom/android/server/wm/InputMonitor;->updateInputWindowsLw(Z)V
 
-    .line 668
     :cond_3
     return-void
 .end method
@@ -2243,6 +2237,8 @@
 
     .line 409
     :cond_0
+    invoke-static {}, Lcom/android/server/wm/InjectorWMS;->mzInsertMultipleWindow()V
+
     const/4 v2, 0x0
 
     move-object/from16 v0, p0

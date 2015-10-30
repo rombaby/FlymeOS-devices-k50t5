@@ -473,124 +473,28 @@
 
     .line 305
     :cond_b
-    const v1, 0x8000
-
-    and-int/2addr v1, p0
+    and-int/lit16 v1, p0, 0x1000
 
     if-eqz v1, :cond_c
 
-    .line 306
-    const-string v1, " CAPABILITY_ANSWER"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 308
-    :cond_c
-    const/high16 v1, 0x10000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_d
-
-    .line 309
-    const-string v1, " CAPABILITY_UNHOLD"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 311
-    :cond_d
-    const/high16 v1, 0x20000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_e
-
-    .line 312
-    const-string v1, " CAPABILITY_ADD_CALL"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 314
-    :cond_e
-    const/high16 v1, 0x40000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_f
-
-    .line 315
-    const-string v1, " CAPABILITY_VOICE_RECORD"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 317
-    :cond_f
-    const/high16 v1, 0x80000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_10
-
-    .line 318
-    const-string v1, " CAPABILITY_ECT"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 322
-    :cond_10
-    const/high16 v1, 0x100000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_11
-
-    .line 323
-    const-string v1, " CAPABILITY_VOLTE"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 326
-    :cond_11
-    const/high16 v1, 0x200000
-
-    and-int/2addr v1, p0
-
-    if-eqz v1, :cond_12
-
-    .line 327
-    const-string v1, " CAPABILITY_INVITE_PARTICIPANTS"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 330
-    :cond_12
-    and-int/lit16 v1, p0, 0x1000
-
-    if-eqz v1, :cond_13
-
-    .line 331
     const-string v1, " CAPABILITY_SEPARATE_FROM_CONFERENCE"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 334
-    :cond_13
+    :cond_c
     and-int/lit16 v1, p0, 0x2000
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_d
 
-    .line 335
     const-string v1, " CAPABILITY_DISCONNECT_FROM_CONFERENCE"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 338
-    :cond_14
+    :cond_d
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 339
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

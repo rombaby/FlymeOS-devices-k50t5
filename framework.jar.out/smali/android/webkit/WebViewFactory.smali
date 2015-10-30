@@ -856,6 +856,10 @@
 
     move-result-object v1
 
+    iget-object v6, v1, Landroid/content/pm/ApplicationInfo;->primaryCpuAbi:Ljava/lang/String;
+
+    if-eqz v6, :cond_flyme_0
+
     .line 286
     .local v1, "ai":Landroid/content/pm/ApplicationInfo;
     iget-object v6, v1, Landroid/content/pm/ApplicationInfo;->primaryCpuAbi:Ljava/lang/String;
@@ -863,6 +867,8 @@
     invoke-static {v6}, Ldalvik/system/VMRuntime;->is64BitAbi(Ljava/lang/String;)Z
 
     move-result v5
+
+    :goto_flyme_0
 
     .line 287
     .local v5, "primaryArchIs64bit":Z
@@ -992,6 +998,12 @@
 
     .restart local v3    # "path64":Ljava/lang/String;
     goto :goto_0
+
+    :cond_flyme_0
+
+    const/4 v5, 0x0
+
+    goto :goto_flyme_0
 .end method
 
 .method public static getWebViewPackageName()Ljava/lang/String;
@@ -1003,7 +1015,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040048
+    const v1, #android:string@config_webViewPackageName#t
 
     invoke-virtual {v0, v1}, Landroid/app/Application;->getString(I)Ljava/lang/String;
 

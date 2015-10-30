@@ -15,6 +15,10 @@
 
 
 # static fields
+.field public static final WAPI_CERT:I = 0x6
+
+.field public static final WAPI_PSK:I = 0x5
+
 .field public static final IEEE8021X:I = 0x3
 
 .field public static final NONE:I = 0x0
@@ -41,6 +45,8 @@
     .prologue
     .line 111
     const/4 v0, 0x7
+
+    add-int/lit8 v0, v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
 

@@ -801,10 +801,9 @@
 
     if-le v0, v1, :cond_c
 
-    .line 264
-    const v17, 0x1040557
+    const v17, #android:string@vpn_lockdown_error#t
 
-    const v18, 0x1080753
+    const v18, #android:drawable@vpn_disconnected#t
 
     move-object/from16 v0, p0
 
@@ -843,20 +842,17 @@
 
     if-eqz v17, :cond_d
 
-    .line 268
     const-string v17, "LockdownVpnTracker"
 
     const-string v18, "Active network connected; starting VPN"
 
     invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
     invoke-static {v10}, Lcom/android/server/EventLogTags;->writeLockdownVpnConnecting(I)V
 
-    .line 270
-    const v17, 0x1040555
+    const v17, #android:string@vpn_lockdown_connecting#t
 
-    const v18, 0x1080753
+    const v18, #android:drawable@vpn_disconnected#t
 
     move-object/from16 v0, p0
 
@@ -932,10 +928,9 @@
 
     invoke-static {v0, v1, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 280
-    const v17, 0x1040557
+    const v17, #android:string@vpn_lockdown_error#t
 
-    const v18, 0x1080753
+    const v18, #android:drawable@vpn_disconnected#t
 
     move-object/from16 v0, p0
 
@@ -956,10 +951,9 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 284
-    const v17, 0x1040557
+    const v17, #android:string@vpn_lockdown_error#t
 
-    const v18, 0x1080753
+    const v18, #android:drawable@vpn_disconnected#t
 
     move-object/from16 v0, p0
 
@@ -1058,13 +1052,11 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 298
     invoke-static {v10}, Lcom/android/server/EventLogTags;->writeLockdownVpnConnected(I)V
 
-    .line 299
-    const v17, 0x1040556
+    const v17, #android:string@vpn_lockdown_connected#t
 
-    const v18, 0x1080752
+    const v18, #android:drawable@vpn_connected#t
 
     move-object/from16 v0, p0
 
@@ -1626,7 +1618,10 @@
     .param p2, "iconRes"    # I
 
     .prologue
-    .line 494
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/net/LockdownVpnTracker;->getFlymeIcon()I
+
+    move-result p2
+
     new-instance v1, Landroid/app/Notification$Builder;
 
     iget-object v2, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
@@ -1655,7 +1650,7 @@
 
     iget-object v2, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040558
+    const v3, #android:string@vpn_lockdown_config#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1683,11 +1678,11 @@
 
     move-result-object v1
 
-    const v2, 0x10803f5
+    const v2, #android:drawable@ic_menu_refresh#t
 
     iget-object v3, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v4, 0x104055b
+    const v4, #android:string@reset#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1705,7 +1700,7 @@
 
     move-result-object v2
 
-    const v3, 0x1060059
+    const v3, #android:color@system_notification_accent_color#t
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2198,4 +2193,13 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
+.end method
+
+.method private getFlymeIcon()I
+    .locals 1
+
+    .prologue
+    sget v0, Lcom/flyme/internal/R$drawable;->mz_stat_sys_vpn_connected:I
+
+    return v0
 .end method
